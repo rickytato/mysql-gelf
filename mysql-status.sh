@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #
 # For variables description, see
@@ -15,12 +15,13 @@ LEVEL=1
 
 MYSQL_USER=root
 MYSQL_PASS=admin
+MYSQL_SOCKET=/var/run/mysqld.sock
 
 GRAYLOG_SERVER=graylog.fxempiredev.com
 GRAYLOG_PORT=12305
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-STATUS_CMD="echo 'SHOW GLOBAL STATUS;' | mysql -u $MYSQL_USER -p$MYSQL_PASS"
+STATUS_CMD="echo 'SHOW GLOBAL STATUS;' | mysql -u $MYSQL_USER -p$MYSQL_PASS -S $MYSQL_SOCKET"
 
 cd $DIR
 
